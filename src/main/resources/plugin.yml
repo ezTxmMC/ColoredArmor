@@ -1,8 +1,8 @@
 name: ColoredArmor
 version: '${project.version}'
-main: tv.eztxm.coloredarmor.ColoredArmor
+main: dev.eztxm.coloredarmor.ColoredArmor
 authors: [ ezTxmMC ]
 website: https://lalura.net
 
 commands:
-  colored:
+  armorcolor:

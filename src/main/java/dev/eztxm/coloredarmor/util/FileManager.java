@@ -1,7 +1,7 @@
-package tv.eztxm.coloredarmor.utils;
+package dev.eztxm.coloredarmor.util;
 
 import org.bukkit.configuration.file.YamlConfiguration;
-import tv.eztxm.coloredarmor.ColoredArmor;
+import dev.eztxm.coloredarmor.ColoredArmor;
 
 import java.io.File;
 import java.io.IOException;
@@ -57,9 +57,9 @@ public class FileManager {
         de_DEYaml.addDefault("Messages.Keine-Rechte", "&cKeine Rechte");
         en_USYaml.addDefault("Messages.No-Perms", "&cNo Perms");
         fr_FRYaml.addDefault("Messages.Pas-de-permissions", "&cPas de permissions");
-        de_DEYaml.addDefault("Messages.Befehl", "&7/colored <helmet|chestplate|leggings|boots> <RED> <GREEN> <BLUE>");
-        en_USYaml.addDefault("Messages.Command", "&7/colored <helmet|chestplate|leggings|boots> <RED> <GREEN> <BLUE>");
-        fr_FRYaml.addDefault("Messages.Commande", "&7/colored <helmet|chestplate|leggings|boots> <RED> <GREEN> <BLUE>");
+        de_DEYaml.addDefault("Messages.Befehl", "&7/armorcolor <red> <green> <blue> <helmet|chestplate|leggings|boots>\n&7/armorcolor <hex> <piece>");
+        en_USYaml.addDefault("Messages.Command", "&7/armorcolor <red> <green> <blue> <helmet|chestplate|leggings|boots>\n&7/armorcolor <hex> <piece>");
+        fr_FRYaml.addDefault("Messages.Commande", "&7/armorcolor <red> <green> <blue> <helmet|chestplate|leggings|boots>\n&7/armorcolor <hex> <piece>");
         de_DEYaml.options().copyDefaults(true);
         en_USYaml.options().copyDefaults(true);
         fr_FRYaml.options().copyDefaults(true);
