@@ -19,6 +19,7 @@ public final class ColoredArmor extends JavaPlugin {
 
     @Override
     public void onEnable() {
+        instance = this;
         FileManager fileManager = new FileManager();
         fileManager.setup();
         getCommand("armorcolor").setExecutor(new ArmorcolorCommand());
@@ -28,6 +29,11 @@ public final class ColoredArmor extends JavaPlugin {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    @Override
+    public void onDisable() {
+        instance = null;
     }
 
     public static ItemStack createColored(Material material, String hex) {

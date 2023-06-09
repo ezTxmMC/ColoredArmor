@@ -61,8 +61,8 @@ public class FileManager {
         en_USYaml.addDefault("Messages.Command", "&7/armorcolor <red> <green> <blue> <piece/all>\n&7/armorcolor <hex> <piece/all>");
         fr_FRYaml.addDefault("Messages.Commande", "&7/armorcolor <red> <green> <blue> <piece/all>\n&7/armorcolor <hex> <piece/all>");
         de_DEYaml.addDefault("Messages.Aktualisierung", "&7Es ist ein neues Update Verfügbar:\n%link");
-        en_USYaml.addDefault("Messages.Update", "Une nouvelle mise à jour est disponible :\n%link");
-        fr_FRYaml.addDefault("Messages.Mise-à-jour", "&7/armorcolor <red> <green> <blue> <piece/all>\n&7/armorcolor <hex> <piece/all>");
+        en_USYaml.addDefault("Messages.Update", "&7There is a new update available:\n%link");
+        fr_FRYaml.addDefault("Messages.Mise-à-jour", "&7Une nouvelle mise à jour est disponible:\n%link");
         de_DEYaml.options().copyDefaults(true);
         en_USYaml.options().copyDefaults(true);
         fr_FRYaml.options().copyDefaults(true);
@@ -91,11 +91,14 @@ public class FileManager {
 
     public static String getUpdateString() {
         if (configYaml.getString("Language").equals("de_DE")) {
-            return de_DEYaml.getString("Messages.Aktualisierung").replace('&', '§');
+            return de_DEYaml.getString("Messages.Aktualisierung").replace('&', '§')
+                    .replace("%link", "https://www.spigotmc.org/resources/coloredarmor.99692/");
         }
         if (configYaml.getString("Language").equals("fr_FR")) {
-            return fr_FRYaml.getString("Messages.Mise-à-jour").replace('&', '§');
+            return fr_FRYaml.getString("Messages.Mise-à-jour").replace('&', '§')
+                    .replace("%link", "https://www.spigotmc.org/resources/coloredarmor.99692/");
         }
-        return en_USYaml.getString("Messages.Update").replace('&', '§');
+        return en_USYaml.getString("Messages.Update").replace('&', '§')
+                .replace("%link", "https://www.spigotmc.org/resources/coloredarmor.99692/");
     }
 }
