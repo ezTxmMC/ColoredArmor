@@ -51,15 +51,18 @@ public class FileManager {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        configYaml.addDefault("Prefix", "&a&lColoredArmor &8| &7");
+        configYaml.addDefault("Prefix", "&9&lColoredArmor &8| &7");
         configYaml.addDefault("Language", "en_US");
         configYaml.options().copyDefaults(true);
         de_DEYaml.addDefault("Messages.Keine-Rechte", "&cKeine Rechte");
         en_USYaml.addDefault("Messages.No-Perms", "&cNo Perms");
         fr_FRYaml.addDefault("Messages.Pas-de-permissions", "&cPas de permissions");
-        de_DEYaml.addDefault("Messages.Befehl", "&7/armorcolor <red> <green> <blue> <helmet|chestplate|leggings|boots>\n&7/armorcolor <hex> <piece>");
-        en_USYaml.addDefault("Messages.Command", "&7/armorcolor <red> <green> <blue> <helmet|chestplate|leggings|boots>\n&7/armorcolor <hex> <piece>");
-        fr_FRYaml.addDefault("Messages.Commande", "&7/armorcolor <red> <green> <blue> <helmet|chestplate|leggings|boots>\n&7/armorcolor <hex> <piece>");
+        de_DEYaml.addDefault("Messages.Befehl", "&7/armorcolor <red> <green> <blue> <piece/all>\n&7/armorcolor <hex> <piece/all>");
+        en_USYaml.addDefault("Messages.Command", "&7/armorcolor <red> <green> <blue> <piece/all>\n&7/armorcolor <hex> <piece/all>");
+        fr_FRYaml.addDefault("Messages.Commande", "&7/armorcolor <red> <green> <blue> <piece/all>\n&7/armorcolor <hex> <piece/all>");
+        de_DEYaml.addDefault("Messages.Aktualisierung", "&7Es ist ein neues Update Verfügbar:\n%link");
+        en_USYaml.addDefault("Messages.Update", "Une nouvelle mise à jour est disponible :\n%link");
+        fr_FRYaml.addDefault("Messages.Mise-à-jour", "&7/armorcolor <red> <green> <blue> <piece/all>\n&7/armorcolor <hex> <piece/all>");
         de_DEYaml.options().copyDefaults(true);
         en_USYaml.options().copyDefaults(true);
         fr_FRYaml.options().copyDefaults(true);
@@ -84,5 +87,15 @@ public class FileManager {
             return fr_FRYaml.getString("Messages.Commande").replace('&', '§');
         }
         return en_USYaml.getString("Messages.Command").replace('&', '§');
+    }
+
+    public static String getUpdateString() {
+        if (configYaml.getString("Language").equals("de_DE")) {
+            return de_DEYaml.getString("Messages.Aktualisierung").replace('&', '§');
+        }
+        if (configYaml.getString("Language").equals("fr_FR")) {
+            return fr_FRYaml.getString("Messages.Mise-à-jour").replace('&', '§');
+        }
+        return en_USYaml.getString("Messages.Update").replace('&', '§');
     }
 }

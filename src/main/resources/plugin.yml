@@ -2,7 +2,7 @@ name: ColoredArmor
 version: '${project.version}'
 main: dev.eztxm.coloredarmor.ColoredArmor
 authors: [ ezTxmMC ]
-website: https://lalura.net
+website: https://eztxm.dev
 
 commands:
   armorcolor:

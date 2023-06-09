@@ -11,7 +11,8 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.IOException;
 
-public class ColoredArmor extends JavaPlugin {
+public final class ColoredArmor extends JavaPlugin {
+    private static ColoredArmor instance;
     private static String prefix;
 
     @Override
@@ -52,5 +53,9 @@ public class ColoredArmor extends JavaPlugin {
 
     public static String getPrefix() {
         return prefix;
+    }
+
+    public static ColoredArmor getInstance() {
+        return instance;
     }
 }
