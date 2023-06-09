@@ -2,7 +2,9 @@ package dev.eztxm.coloredarmor;
 
 import com.github.lalyos.jfiglet.FigletFont;
 import dev.eztxm.coloredarmor.command.ArmorcolorCommand;
+import dev.eztxm.coloredarmor.event.JoinListener;
 import dev.eztxm.coloredarmor.util.FileManager;
+import org.bukkit.Bukkit;
 import org.bukkit.Color;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
@@ -20,8 +22,9 @@ public final class ColoredArmor extends JavaPlugin {
         FileManager fileManager = new FileManager();
         fileManager.setup();
         getCommand("armorcolor").setExecutor(new ArmorcolorCommand());
+        Bukkit.getPluginManager().registerEvents(new JoinListener(), this);
         try {
-            System.out.println("\n" + FigletFont.convertOneLine("ColoredArmor") + "\nby ezTxmMC      Version: 1.3\n");
+            System.out.println("\n" + FigletFont.convertOneLine("ColoredArmor") + "\nby ezTxmMC      Version: 1.4\n");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
