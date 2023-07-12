@@ -15,7 +15,7 @@ public class JoinListener implements Listener {
         Player player = event.getPlayer();
         if (player.hasPermission("colored.update")) {
             new UpdateChecker(ColoredArmor.getInstance(), 99692).getVersion(version -> {
-                if (!ColoredArmor.getInstance().getDescription().getVersion().equals(version)) {
+                if (!ColoredArmor.getInstance().getDescription().getVersion().equalsIgnoreCase(version)) {
                     player.sendMessage(ColoredArmor.getPrefix() + FileManager.getUpdateString());
                 }
             });

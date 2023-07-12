@@ -12,14 +12,13 @@ import dev.eztxm.coloredarmor.util.FileManager;
 import java.util.Collections;
 import java.util.List;
 
-public class ArmorcolorCommand implements CommandExecutor, TabExecutor {
+public class ColoredArmorCommand implements CommandExecutor, TabExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (!(sender instanceof Player)) return false;
         Player player = (Player) sender;
-        if (!player.hasPermission("colored.use")) player.sendMessage(ColoredArmor.getPrefix() + FileManager.getNoPermsString());
-        else {
+        if (player.hasPermission("colored.use")) {
             if (args.length == 2) {
                 switch (args[1]) {
                     case "helmet":
@@ -81,7 +80,9 @@ public class ArmorcolorCommand implements CommandExecutor, TabExecutor {
                 return false;
             }
             player.sendMessage(ColoredArmor.getPrefix().split(" ")[0] + "\n" + FileManager.getColoredCommand() + "\n" + ColoredArmor.getPrefix().split(" ")[0]);
+            return false;
         }
+        player.sendMessage(ColoredArmor.getPrefix() + FileManager.getNoPermsString());
         return false;
     }
 
